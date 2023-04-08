@@ -45,13 +45,13 @@ void Clear()
 void MainMenu()
 {
     Clear();
-    cout<<UserName<<endl;
-    cout<<endl;
-    cout<<"ID: "<<UserID<<endl;
-    cout<<"Class: "<<UserClass<<endl;
-    cout<<"Team: "<<UserTeam<<endl;
-    cout<<"Nation: "<<UserNation<<endl;
-    cout<<"Site: "<<UserSiteID<<endl;
+    cout << UserName << endl;
+    cout << endl;
+    cout << "ID: " << UserID << endl;
+    cout << "Class: " << UserClass << endl;
+    cout << "Team: " << UserTeam << endl;
+    cout << "Nation: " << UserNation << endl;
+    cout << "Site: " << UserSiteID << endl;
     Line();
 }
 
@@ -113,15 +113,15 @@ public:
             getline(cin, pass);
             getline(cin, pass);
             Clear();
-            if (pass==UserPass)
+            if (pass == UserPass)
             {
-                cout<<"Password correct, proceeding to main menu..."<<endl;
+                cout << "Password correct, proceeding to main menu..." << endl;
                 Wait(2000);
                 MainMenu();
             }
             else
             {
-                cout<<"Wrong password, quitted."<<endl;
+                cout << "Wrong password, quitted." << endl;
             }
         }
         else
