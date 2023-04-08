@@ -141,7 +141,21 @@ void AddUser(int _id, string _class, string _name, string _pass, string _siteId,
 
 void InitDataBase()
 {
-    AddUser(129001, "O5", "Yuchen Fan", "Password", "11", "China", "Alpha-1");
+    /*
+    129XXX : O5
+    128XXX : A - 1
+    127XXX : A - 2
+    126XXX : B - 1
+    125XXX : B - 2
+    124XXX : C - 1
+    123XXX : C - 2
+    122XXX : D - 1
+    121XXX : D - 2
+    */
+    AddUser(12900001, "O5", "Ricky Fan", "Password", "11", "China", "Alpha-1");
+    AddUser(12900002, "O5", "Acton Wang", "Password", "11", "China", "Epsilon-11");
+    AddUser(12800001, "A-1", "Isabella He", "Password", "15", "China", "Nu-7");
+    AddUser(12700001, "A-2", "Alan Chen", "Password", "15", "China", "Beta-12");
 }
 
 int main()
