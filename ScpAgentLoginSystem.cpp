@@ -152,8 +152,8 @@ void InitDataBase()
     122XXX : D - 1
     121XXX : D - 2
     */
-    AddUser(12900001, "O5", "Ricky Fan", "Password", "11", "China", "Alpha-1");
-    AddUser(12900002, "O5", "Acton Wang", "Password", "11", "China", "Epsilon-11");
+    AddUser(12900001, "O5", "Yuchen Fan", "Password", "11", "China", "Alpha-1");
+    AddUser(12900002, "O5", "Yichen Wang", "Password", "11", "China", "Epsilon-11");
     AddUser(12800001, "A-1", "Isabella He", "Password", "15", "China", "Nu-7");
     AddUser(12700001, "A-2", "Alan Chen", "Password", "15", "China", "Beta-12");
 }
