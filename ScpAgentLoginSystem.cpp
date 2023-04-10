@@ -14,6 +14,7 @@ string UserSiteID;
 string UserNation;
 string UserTeam;
 int UserCnt = 0;
+int LogCnt = 0;
 
 void Wait(int ms)
 {
@@ -78,6 +79,31 @@ public:
 };
 
 DataBase DB[10005];
+
+class LogBase
+{
+public:
+    string AuthorName;
+    int AuthorID;
+    string AuthorClass;
+    string AuthorNation;
+    string AuthorTeam;
+    string AuthorSiteID;
+    string Title;
+    string Content;
+    void Save(string _name, int _id, string _class, string _nation, string _team, string _siteId, string _title, string _content)
+    {
+        AuthorName = _name;
+        AuthorClass = _class;
+        AuthorNation = _nation;
+        AuthorTeam = _team;
+        AuthorSiteID = _siteId;
+        Title = _title;
+        Content = _content;
+    }
+};
+
+LogBase LB[100005];
 
 class LoginService
 {
@@ -152,15 +178,70 @@ void InitDataBase()
     122XXX : D - 1
     121XXX : D - 2
     */
-    AddUser(12900001, "O5", "Yuchen Fan", "Password", "11", "China", "Alpha-1");
-    AddUser(12900002, "O5", "Yichen Wang", "Password", "11", "China", "Epsilon-11");
-    AddUser(12800001, "A-1", "Isabella He", "Password", "15", "China", "Nu-7");
-    AddUser(12700001, "A-2", "Alan Chen", "Password", "15", "China", "Beta-12");
+    AddUser(12900001, "O5", "Yuchen Fan", "Password", "T-11", "China", "Alpha-1");
+    AddUser(12900002, "O5", "Yichen Wang", "Password", "T-11", "China", "Epsilon-11");
+    AddUser(12800001, "A-1", "Isabella He", "Password", "N-15", "China", "Nu-7");
+    AddUser(12700001, "A-2", "Alan Chen", "Password", "N-15", "China", "Beta-12");
+}
+
+void AddLog(string _name, int _id, string _class, string _nation, string _team, string _siteId, string _title, string _content)
+{
+    LB[++LogCnt].Save(_name, _id, _class, _nation, _team, _siteId, _title, _content);
+}
+
+void ShowLog(int _id)
+{
+    Line();
+    cout << LB[_id].Title << endl
+         << endl;
+    cout << LB[_id].AuthorName << " | " << LB[_id].AuthorClass << endl
+         << endl;
+    cout << LB[_id].Content << endl;
+    Line();
+}
+
+void StartTerminal()
+{
+    string OpCode = "";
+    while (OpCode != "Quit")
+    {
+        cin >> OpCode;
+        if (OpCode == "Time")
+        {
+            GetTime();
+            Line();
+        }
+        else if (OpCode == "Clear")
+        {
+            Clear();
+        }
+        else if (OpCode == "WriteLog")
+        {
+            Line();
+            string Title;
+            cout << "Title: ";
+            getline(cin, Title);
+            getline(cin, Title);
+            string Content;
+            cout << "Content: ";
+            getline(cin, Content);
+            AddLog(UserName, UserID, UserClass, UserNation, UserTeam, UserSiteID, Title, Content);
+            Line();
+        }
+        else if (OpCode == "DispLog")
+        {
+            int ID;
+            cout << "LogID: ";
+            cin >> ID;
+            ShowLog(ID);
+        }
+    }
 }
 
 int main()
 {
     InitDataBase();
     LS.Login();
+    StartTerminal();
     return 0;
 }
